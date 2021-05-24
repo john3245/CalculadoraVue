@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <style>
+#titulo { 
+        text-decoration: underline overline #FCA101;
+        font-size:8rem;
+        
+    }
+
+
+#res 
+{
+    font-size:4rem;
+    color:#239B56;  
+}    
+
+#box
+{
+
+text-align:center;
+}
+
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Con Vue</title>
+
+    
+
+   
+</head>
+<body>
+        <div id="app" class="container"> 
+            <span id="titulo" v-text="Titulo"></span>
+            <br>
+        
+        <input v-model="num1" type="number" inputmode="numeric" size="40rem"  />
+
+        <input v-model="num2" type="number" inputmode="numeric" size="40rem"  />
+
+    
+
+
+        <select v-model="operacion">
+            <option value="0">+</option>
+            <option value="1">-</option>
+            <option value="2">X</option>
+            <option value="3">/</option>
+        </select>
+
+    
+
+        
+<button class="btn btn-" v-on:click="Calcular">Calcular</button>
+
+<br>
+<br>
+
+<div id="box"><span id="res"  v-text="resultado"></span></div>
+
+
+
+
+        <footer class="footer">
+            <p>&copy; JONATHAN BANDA 8A IDGS</p>
+                    </footer>
+        
+        </div>
+
+
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                  Titulo: 'Calculadora con Vue',
+                  num1:null,
+                  num2:null,
+                  resultado:null,
+                  operacion:"0"
+                },
+                methods: {
+                    Calcular: function (){
+
+
+                        switch(this.operacion)
+                        {
+                            case "0":
+                            this.resultado=parseInt(this.num1) + parseInt(this.num2);
+
+                                                console.log(this.resultado);
+
+                                                if(isNaN(this.resultado))
+                                                {
+                                                    return this.resultado="No es valido";
+                                                }
+
+                                                else
+                                                {
+                                                    return this.resultado;
+                                                }
+                            break;
+
+                            case "1":
+                            this.resultado=parseFloat(this.num1) - parseFloat(this.num2);
+
+                                                console.log(this.resultado);
+
+                                                if(isNaN(this.resultado))
+                                                {
+                                                    return this.resultado="No es valido";
+                                                }
+
+                                                else
+                                                {
+                                                    return this.resultado;
+                                                }
+                            break;
+
+                            case "2":
+                            this.resultado=parseFloat(this.num1) * parseFloat(this.num2);
+
+                                                console.log(this.resultado);
+
+                                                if(isNaN(this.resultado))
+                                                {
+                                                    return this.resultado="No es valido";
+                                                }
+
+                                                else
+                                                {
+                                                    return this.resultado;
+                                                }
+                            break;
+
+                            case "3":
+                            this.resultado=parseFloat(this.num1) / parseFloat(this.num2);
+
+                                                console.log(this.resultado);
+
+                                                if(isNaN(this.resultado))
+                                                {
+                                                    return this.resultado="No es valido";
+                                                }
+
+                                                else
+                                                {
+                                                    return this.resultado;
+                                                }
+                            break;
+                        }
+                   
+                     
+                     
+                    }
+                }
+              })
+            
+            </script>
+</body>
+
+</html>
+
+
+
+
